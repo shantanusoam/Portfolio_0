@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import { AppWrap } from '../../wrapper';
 import { images } from '../../constants';
 import './Header.scss';
+import { RoughNotation } from 'react-rough-notation';
 
 const scaleVariants = {
   whileInView: {
@@ -33,27 +34,41 @@ const Header = () => (
         </div>
 
         <div className="tag-cmp app__flex">
-          <p className="p-text">Web Developer</p>
+          <p className="p-text"> Full Stack Developer</p>
           <p className="p-text">Freelancer</p>
         </div>
       </div>
     </motion.div>
-
-    <motion.div
-      whileInView={{ opacity: [0, 1] }}
-      transition={{ duration: 0.5, delayChildren: 0.5 }}
-      className="app__header-img"
+    <RoughNotation
+      type="circle"
+      show={true}
+      padding={-40}
+      animationDuration={2000}
+      color="#ff2600"
     >
-      <img src={images.profile} alt="profile_bg" />
-      <motion.img
-        whileInView={{ scale: [0, 1] }}
-        transition={{ duration: 1, ease: 'easeInOut' }}
-        src={images.circle}
-        alt="profile_circle"
-        className="overlay_circle"
-      />
-    </motion.div>
-
+      <RoughNotation
+        type="underline"
+        show={true}
+        padding={0}
+        animationDuration={3000}
+        color="#435689"
+      >
+        <motion.div
+          whileInView={{ opacity: [0, 1] }}
+          transition={{ duration: 0.5, delayChildren: 0.5 }}
+          className="app__header-img"
+        >
+          <img src={images.profile} alt="profile_bg" />
+          <motion.img
+            whileInView={{ scale: [0, 1] }}
+            transition={{ duration: 1, ease: 'easeInOut' }}
+            src={images.circle}
+            alt="profile_circle"
+            className="overlay_circle"
+          />
+        </motion.div>
+      </RoughNotation>
+    </RoughNotation>
     <motion.div
       variants={scaleVariants}
       whileInView={scaleVariants.whileInView}
